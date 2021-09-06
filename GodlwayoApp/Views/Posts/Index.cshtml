@@ -1,0 +1,37 @@
+﻿@model IEnumerable<GodlwayoApp.Models.Post>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.PostCreated)
+            </th>
+
+            <th>
+                <a class="btn btn-success btn-sm text-white" asp-action="Create"><i class="fas fa-random"></i>Post</a>
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PostCreated)
+                </td>
+
+                <td>
+                    <a class="btn btn-warning btn-sm" asp-action="Edit" asp-route-id="@item.Id"><i class="fa fa-wrench"></i>Edit</a>
+                    <a class="btn btn-info btn-sm" asp-action="Details" asp-route-id="@item.Id"><i class="fa fa-info-circle"></i>Details</a>
+                    <a class="btn btn-danger" asp-action="Delete" asp-route-id="@item.Id"><i class="fa fa-trash"></i>Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
